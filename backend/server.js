@@ -8,6 +8,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const authRoutes = require('./src/routes/auths.js'); // Ensure correct relative path
+app.use("/api/auth", authRoutes); // Register auth routes
+
 // Import middleware & routes
 const { verifyToken } = require('./src/middleware/auth');
 const taskRoutes = require('./src/routes/tasks');
